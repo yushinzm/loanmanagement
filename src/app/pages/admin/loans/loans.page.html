@@ -1,0 +1,21 @@
+<ion-header>
+  <div class="header_holder">
+    <div class="title_holder">
+      <ion-title>Manage Loans</ion-title>
+    </div>
+    <div class="tab_holder">
+      <div (click)="change('approvedLoans')" class="tab_details" [ngClass]="{'selected' : path == 'approvedLoans'}">
+        Approved
+      </div>
+      <div (click)="change('pendingLoans')" class="tab_details" [ngClass]="{'selected' : path == 'pendingLoans'}">
+        Pending
+      </div>
+      <div (click)="change('rejectedLoans')" class="tab_details" [ngClass]="{'selected' : path == 'rejectedLoans'}">
+        Rejected
+      </div>
+    </div>
+  </div>
+</ion-header>
+<ion-content>
+  <ion-router-outlet></ion-router-outlet>
+</ion-content>

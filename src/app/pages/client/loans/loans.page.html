@@ -1,0 +1,28 @@
+<ion-header>
+  <div class="header_holder">
+    <div class="title_holder">
+      <ion-title>My Loans</ion-title>
+    </div>
+    <div class="tab_holder">
+      <div (click)="change('approved')" class="tab_details" [ngClass]="{'selected' : path == 'approved'}">
+        Approved
+      </div>
+      <div (click)="change('pending')" class="tab_details" [ngClass]="{'selected' : path == 'pending'}">
+        Pending
+      </div>
+      <div (click)="change('rejected')" class="tab_details" [ngClass]="{'selected' : path == 'rejected'}">
+        Rejected
+      </div>
+    </div>
+  </div>
+</ion-header>
+<ion-content>
+  <ion-router-outlet></ion-router-outlet>
+
+<!-- fab placed to the bottom end -->
+<ion-fab vertical="bottom" style="bottom: 90px; right: 30px;" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="presentModal()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+</ion-content>

@@ -1,0 +1,13 @@
+.center_holder {
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: var(--ion-color-primary);
+
+  ion-card {
+      width: 350px;
+      text-align: center !important;
+  }
+}

@@ -1,0 +1,111 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@import "../node_modules/ag-grid-community/src/styles/ag-grid.scss";
+@import "../node_modules/ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin.scss";
+@import "../node_modules/ag-grid-community/src/styles/ag-theme-alpine-dark/sass/ag-theme-alpine-dark-mixin.scss";
+@import "../node_modules/ag-grid-community/src/styles/ag-theme-balham/sass/ag-theme-balham-mixin.scss";
+@import "../node_modules/ag-grid-community/src/styles/ag-theme-balham-dark/sass/ag-theme-balham-dark-mixin.scss";
+@import "../node_modules/ag-grid-community/src/styles/ag-theme-material/sass/ag-theme-material-mixin.scss";
+
+.ag-theme-alpine {
+  @include ag-theme-alpine();
+}
+
+.ag-theme-alpine-dark {
+  @include ag-theme-alpine-dark();
+}
+
+.ag-theme-balham {
+  @include ag-theme-balham();
+}
+
+.ag-theme-balham-dark {
+  @include ag-theme-balham-dark();
+}
+
+.ag-theme-material {
+  @include ag-theme-material((odd-row-background-color: #cfd8dc));
+}
+
+
+/* Works - pass "my-custom-class" in cssClass to increase specificity */
+.add_a_role .modal-wrapper {
+  border-radius: 0px;
+  background-color: transparent !important;
+  width: 400px;
+  height: 260px;
+  text-align: center !important;
+}
+
+.add_a_member .modal-wrapper {
+  border-radius: 20px;
+  width: 350px;
+  height: 350px;
+}
+
+.my-custom-class .alert-wrapper {
+  min-width: 350px !important;
+}
+
+.add_a_frontliner .modal-wrapper {
+  border-radius: 20px;
+  width: 350px;
+  height: 670px;
+}
+
+.add_a_province .modal-wrapper {
+  border-radius: 20px;
+  width: 300px;
+  height: 215px;
+}
+
+.add_a_district .modal-wrapper {
+  border-radius: 20px;
+  width: 300px;
+  height: 295px;
+}
+
+.add_a_ward .modal-wrapper {
+  border-radius: 20px;
+  width: 300px;
+  height: 365px;
+}
+
+.upp {
+  text-transform: capitalize;
+}
+
+.low {
+  text-transform: lowercase;
+}
+
+.esri-ui {
+  display: none !important;
+  height: 0px !important;
+  width: 0px !important;
+}

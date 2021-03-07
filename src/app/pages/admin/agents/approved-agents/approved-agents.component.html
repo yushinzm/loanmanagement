@@ -1,0 +1,12 @@
+<ag-grid-angular style="width: 100%; height: 100%;" #agGrid id="myGrid" class="ag-theme-material"
+    copyHeadersToClipboard="false" suppressCopyRowsToClipboard="true"
+    suppressRowClickSelection="true" suppressClipboardCopy="false"
+    [rowData]="agents" [groupHeaderHeight]="groupHeaderHeight" [headerHeight]="headerHeight"
+    [floatingFiltersHeight]="floatingFiltersHeight" [pivotGroupHeaderHeight]="pivotGroupHeaderHeight"
+    [pivotHeaderHeight]="pivotHeaderHeight" [columnDefs]="columnDefs" [defaultColDef]="defaultColDef"
+    (gridReady)="onGridReady($event)" [rowDragManaged]="false" [rowSelection]="rowSelection" [animateRows]="true"
+    (rowClicked)="onSelectionChanged($event)" [multiSortKey]="multiSortKey" [enableRangeSelection]="true"
+    [paginationAutoPageSize]="true" [pagination]="true" [groupSelectsChildren]="true"
+    [rowGroupPanelShow]="rowGroupPanelShow" [groupHideOpenParents]="true" [groupRemoveSingleChildren]="true"
+    [groupMultiAutoColumn]="true" [enableCharts]="true" [sideBar]="sideBar">
+</ag-grid-angular>

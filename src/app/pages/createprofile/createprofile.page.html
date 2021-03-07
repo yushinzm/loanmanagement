@@ -1,0 +1,226 @@
+<ion-content>
+
+  <div class="center_holder">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Create Profile</ion-card-subtitle>
+        <ion-card-title>Choose account Type</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <!-- Default Segment -->
+        <ion-segment value="all" color="tertiary" scrollable="true" [(ngModel)]="segmentModel"
+          (ionChange)="segmentChanged($event)">
+          <ion-segment-button value="admin">
+            <ion-label>Admin</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="client">
+            <ion-label>Client</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+        <div *ngIf="segmentModel === 'admin'">
+          <form [formGroup]="agentAccountCreationForm" [style.fontSize.px]="getFontSize()" (ngSubmit)="onSubmittedAgent()">
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating">First name *</ion-label>
+                    <ion-input formControlName="firstname" placeholder="John" required></ion-input>
+                  </ion-item>
+                  <span class="error ion-padding" *ngIf="submittedAgent && agentErrorControl.firstname.errors?.required">
+                    First name is required.
+                  </span>
+                  <span class="error ion-padding" *ngIf="submittedAgent && agentErrorControl.firstname.errors?.minlength">
+                    First name should be at least 3 chars long.
+                  </span>
+                  <span class="error ion-padding" *ngIf="submittedAgent && agentErrorControl.firstname.errors?.pattern">
+                    Please enter a valid first name
+                  </span>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating">Last name *</ion-label>
+                    <ion-input formControlName="lastname" placeholder="Doe" required></ion-input>
+                  </ion-item>
+                  <span class="error ion-padding" *ngIf="submittedAgent && agentErrorControl.lastname.errors?.required">
+                    Last name is required.
+                  </span>
+                  <span class="error ion-padding" *ngIf="submittedAgent && agentErrorControl.lastname.errors?.minlength">
+                    Last name should be at least 3 chars long.
+                  </span>
+                  <span class="error ion-padding" *ngIf="submittedAgent && agentErrorControl.lastname.errors?.pattern">
+                    Please enter a valid last name
+                  </span>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating">Email Address *</ion-label>
+                    <ion-input formControlName="email" placeholder="example@example.com" required></ion-input>
+                  </ion-item>
+                  <span class="error ion-padding" *ngIf="submittedAgent && agentErrorControl.email.errors?.required">
+                    E-mail address is required.
+                  </span>
+                  <span class="error ion-padding" *ngIf="submittedAgent && agentErrorControl.email.errors?.email">
+                    Enter a valid email address
+                  </span>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating">Phone Number *</ion-label>
+                    <ion-input formControlName="phoneNumber" type="tel" placeholder="+(260)000 000-000" disabled="true"
+                      required>
+                    </ion-input>
+                  </ion-item>
+                  <span class="error ion-padding" *ngIf="submittedAgent && agentErrorControl.phoneNumber.errors?.required">
+                    Phone number is required.
+                  </span>
+                  <span class="error ion-padding" *ngIf="submittedAgent && agentErrorControl.phoneNumber.errors?.minlength">
+                    Phone number should be at least 13 chars long.
+                  </span>
+                  <span class="error ion-padding" *ngIf="submittedAgent && agentErrorControl.phoneNumber.errors?.pattern">
+                    Please enter a valid phone number
+                  </span>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating">NRC Number *</ion-label>
+                    <ion-input mask="******/**/*" placeholder="######/##/#" formControlName="nrc" required>
+                    </ion-input>
+                  </ion-item>
+                  <span class="error ion-padding" *ngIf="submittedAgent && agentErrorControl.nrc.errors?.required">
+                    NRC number is required.
+                  </span>
+                  <span class="error ion-padding" *ngIf="submittedAgent && agentErrorControl.nrc.errors?.minlength">
+                    Please enter a valid NRC number.
+                  </span>
+                </ion-col>
+              </ion-row>
+              <br />
+              <ion-row>
+                <ion-col>
+                </ion-col>
+                <ion-col size="5">
+                  <ion-button type="submit" expand="full" color="primary">Proceed</ion-button>
+                </ion-col>
+                <ion-col>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </form>
+        </div>
+
+        <div *ngIf="segmentModel === 'client'">
+          <form [formGroup]="accountCreationForm" [style.fontSize.px]="getFontSize()" (ngSubmit)="onSubmitted()">
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating">First name *</ion-label>
+                    <ion-input formControlName="firstname" placeholder="John" required></ion-input>
+                  </ion-item>
+                  <span class="error ion-padding" *ngIf="submitted && errorControl.firstname.errors?.required">
+                    First name is required.
+                  </span>
+                  <span class="error ion-padding" *ngIf="submitted && errorControl.firstname.errors?.minlength">
+                    First name should be at least 3 chars long.
+                  </span>
+                  <span class="error ion-padding" *ngIf="submitted && errorControl.firstname.errors?.pattern">
+                    Please enter a valid first name
+                  </span>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating">Last name *</ion-label>
+                    <ion-input formControlName="lastname" placeholder="Doe" required></ion-input>
+                  </ion-item>
+                  <span class="error ion-padding" *ngIf="submitted && errorControl.lastname.errors?.required">
+                    Last name is required.
+                  </span>
+                  <span class="error ion-padding" *ngIf="submitted && errorControl.lastname.errors?.minlength">
+                    Last name should be at least 3 chars long.
+                  </span>
+                  <span class="error ion-padding" *ngIf="submitted && errorControl.lastname.errors?.pattern">
+                    Please enter a valid last name
+                  </span>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating">Gender *</ion-label>
+                    <ion-select formControlName="gender" required placeholder="Select One" interface="action-sheet">
+                      <ion-select-option value="female">Female</ion-select-option>
+                      <ion-select-option value="male">Male</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                  <span class="error ion-padding" *ngIf="submitted && errorControl.gender.errors?.required">
+                    Please select a gender
+                  </span>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating">Email Address *</ion-label>
+                    <ion-input formControlName="email" placeholder="example@example.com" required></ion-input>
+                  </ion-item>
+                  <span class="error ion-padding" *ngIf="submitted && errorControl.email.errors?.required">
+                    E-mail address is required.
+                  </span>
+                  <span class="error ion-padding" *ngIf="submitted && errorControl.email.errors?.email">
+                    Enter a valid email address
+                  </span>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating">Phone Number *</ion-label>
+                    <ion-input formControlName="phoneNumber" type="tel" placeholder="+(260)000 000-000" disabled="true"
+                      required>
+                    </ion-input>
+                  </ion-item>
+                  <span class="error ion-padding" *ngIf="submitted && errorControl.phoneNumber.errors?.required">
+                    Phone number is required.
+                  </span>
+                  <span class="error ion-padding" *ngIf="submitted && errorControl.phoneNumber.errors?.minlength">
+                    Phone number should be at least 13 chars long.
+                  </span>
+                  <span class="error ion-padding" *ngIf="submitted && errorControl.phoneNumber.errors?.pattern">
+                    Please enter a valid phone number
+                  </span>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating">NRC Number *</ion-label>
+                    <ion-input mask="******/**/*" placeholder="######/##/#" formControlName="nrc" required>
+                    </ion-input>
+                  </ion-item>
+                  <span class="error ion-padding" *ngIf="submitted && errorControl.nrc.errors?.required">
+                    NRC number is required.
+                  </span>
+                  <span class="error ion-padding" *ngIf="submitted && errorControl.nrc.errors?.minlength">
+                    Please enter a valid NRC number.
+                  </span>
+                </ion-col>
+              </ion-row>
+              <br />
+              <ion-row>
+                <ion-col>
+                </ion-col>
+                <ion-col size="5">
+                  <ion-button type="submit" expand="full" color="primary">Proceed</ion-button>
+                </ion-col>
+                <ion-col>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </form>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

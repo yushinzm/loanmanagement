@@ -1,0 +1,49 @@
+.header_holder {
+  height: 80px;
+  width: 100%;
+  background-color: white;
+
+  .title_holder {
+      height: 38px;
+
+      ion-title {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          color: #1b3a57;
+          left: -1px;
+          margin: 20px 16px;
+          padding: 0;
+          position: relative;
+      }
+  }
+
+  .tab_holder {
+      height: calc(100% - 38px);
+      padding-left: 16px;
+
+      .tab_details {
+          height: 100%;
+          float: left;
+          justify-content: center;
+          align-items: center;
+          display: flex;
+          padding: 10px 10px;
+          color: #476282;
+          font-size: 12px;
+          font-weight: 400;
+          margin-right: 16px;
+          cursor: pointer;
+          text-transform: uppercase;
+      }
+
+      .tab_details:hover {
+          color: var(--ion-color-primary);
+      }
+
+      .selected {
+          border-bottom: 3px solid var(--ion-color-primary);
+          color: var(--ion-color-primary);
+      }
+  }
+}

@@ -1,0 +1,18 @@
+<ion-header>
+  <div class="header_holder">
+    <div class="title_holder">
+      <ion-title>Manage Client Accounts</ion-title>
+    </div>
+    <div class="tab_holder">
+      <div (click)="change('approvedClients')" class="tab_details" [ngClass]="{'selected' : path == 'approvedClients'}">
+        Approved
+      </div>
+      <div (click)="change('pendingClients')" class="tab_details" [ngClass]="{'selected' : path == 'pendingClients'}">
+        Pending
+      </div>
+    </div>
+  </div>
+</ion-header>
+<ion-content>
+  <ion-router-outlet></ion-router-outlet>
+</ion-content>

@@ -1,0 +1,63 @@
+<ion-app>
+  <ion-split-pane *ngIf="!loading" contentId="main-content">
+    <ion-menu *ngIf="loggedIn" contentId="main-content" type="overlay">
+      <ion-content class="menu_items">
+
+        <section>
+          <div class="logo_holder">
+            <ion-icon name="color-filter" style="color: white;font-size: 24px;"></ion-icon>          </div>
+        </section>
+        <section>
+          <div *ngIf="admin" class="menu_switcher">
+
+            <div routerLink="admin/clients" #rlap="routerLinkActive" routerLinkActive="selected">
+              <div>
+                <ion-icon name="people{{ rlap.isActive ? '' : '-outline'}}"></ion-icon>
+              </div>
+            </div>
+            <div routerLink="admin/loans" #rlam="routerLinkActive" routerLinkActive="selected">
+              <div>
+                <ion-icon name="folder{{ rlam.isActive ? '' : '-outline'}}"></ion-icon>
+              </div>
+            </div>
+            <div routerLink="admin/agents" #rlar="routerLinkActive" routerLinkActive="selected">
+              <div>
+                <ion-icon name="briefcase{{ rlar.isActive ? '' : '-outline'}}"></ion-icon>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="!admin" class="menu_switcher2">
+            <div routerLink="client" #rla="routerLinkActive" routerLinkActive="selected">
+              <div>
+                <ion-icon name="folder{{ rla.isActive ? '' : '-outline'}}"></ion-icon>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+        </section>
+        <section>
+          <div routerLink="account" #rlaa="routerLinkActive" routerLinkActive="selected">
+            <div>
+              <ion-icon name="person-circle{{ rlaa.isActive ? '' : '-outline'}}"></ion-icon>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div routerLink="settings" routerLinkActive="selected">
+            <div>
+              <ion-icon name="settings-outline"></ion-icon>
+            </div>
+          </div>
+        </section>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+  <div *ngIf="loading" class="loading_holder">
+    <div class="lds-ripple">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</ion-app>

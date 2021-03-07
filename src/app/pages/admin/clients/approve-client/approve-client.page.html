@@ -1,0 +1,40 @@
+<ion-card style="height: 100%;">
+  <ion-card-header>
+    <ion-card-subtitle>Approve Client Account</ion-card-subtitle>
+    <ion-card-title>Set Maximum Loan Amount</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <form [formGroup]="approvalForm" [style.fontSize.px]="getFontSize()" (ngSubmit)="onSubmitted()">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Maximum Loan Amount *</ion-label>
+              <ion-input formControlName="loanAmount" placeholder="Enter an Amount" required>
+              </ion-input>
+            </ion-item>
+            <span class="error ion-padding" *ngIf="submitted && errorControl.loanAmount.errors?.required">
+              Loan Amount is required.
+            </span>
+            <span class="error ion-padding" *ngIf="submitted && errorControl.loanAmount.errors?.minlength">
+              Loan Amount should be at least 3 chars long.
+            </span>
+            <span class="error ion-padding" *ngIf="submitted && errorControl.loanAmount.errors?.pattern">
+              Please enter a valid Loan Amount.
+            </span>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="5"></ion-col>
+          <ion-col size="3" class="ion-align-self-end">
+            <ion-button (click)="close()" fill="clear" color="primary">Cancel</ion-button>
+          </ion-col>
+          <ion-col size="3" class="ion-align-self-end">
+            <ion-button type="submit" color="primary">Approve</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </form>
+  </ion-card-content>
+</ion-card>
